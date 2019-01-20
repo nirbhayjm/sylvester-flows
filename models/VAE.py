@@ -343,8 +343,9 @@ class OrthogonalSylvesterVAE(VAE):
             test = torch.bmm(amat.transpose(2, 1), amat) - self._eye
             norms2 = torch.sum(torch.norm(test, p=2, dim=2) ** 2, dim=1)
             norms = torch.sqrt(norms2)
-            max_norm = torch.max(norms).data[0]
-            if max_norm <= self.cond:
+            # max_norm = torch.max(norms).data[0]
+            max_norm = torch.max(norms)
+            if max_norm.item() <= self.cond:
                 break
 
         if max_norm > self.cond:

@@ -9,7 +9,7 @@ import torch.nn as nn
 from torch.autograd import Variable
 import torch.nn.functional as F
 
-from models.layers import MaskedConv2d, MaskedLinear
+from sylvester_flows.models.layers import MaskedConv2d, MaskedLinear
 
 
 class Planar(nn.Module):
